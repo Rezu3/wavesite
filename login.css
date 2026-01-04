@@ -1,0 +1,801 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0c2461 0%, #1e3799 50%, #4a69bd 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.science-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Background Science Elements */
+.science-bg-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.atom {
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    width: 120px;
+    height: 120px;
+    transform: translate(50%, -50%);
+}
+
+.nucleus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 25px;
+    background: linear-gradient(135deg, #ff6b6b, #ffa502);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.orbit-1 {
+    width: 80px;
+    height: 80px;
+}
+
+.orbit-2 {
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.orbit-3 {
+    width: 120px;
+    height: 120px;
+    transform: translate(-50%, -50%) rotate(120deg);
+}
+
+.electron {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #4a69bd;
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.e1 { animation: electron-orbit 8s linear infinite; }
+.e2 { animation: electron-orbit 10s linear infinite reverse; }
+.e3 { animation: electron-orbit 12s linear infinite; }
+
+@keyframes electron-orbit {
+    from { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+
+.flask {
+    position: absolute;
+    bottom: 15%;
+    left: 8%;
+    width: 80px;
+    height: 120px;
+}
+
+.flask-body {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px 30px 10px 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.flask-neck {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px 10px 0 0;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-bottom: none;
+}
+
+.liquid {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 60px;
+    background: linear-gradient(to top, rgba(116, 185, 255, 0.6), rgba(9, 132, 227, 0.8));
+    border-radius: 25px 25px 5px 5px;
+    animation: liquid-bubble 4s ease-in-out infinite;
+}
+
+.bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+}
+
+.b1 { width: 8px; height: 8px; bottom: 40px; left: 55%; animation: bubble-rise 3s infinite; }
+.b2 { width: 5px; height: 5px; bottom: 30px; left: 45%; animation: bubble-rise 4s infinite 0.5s; }
+.b3 { width: 6px; height: 6px; bottom: 20px; left: 50%; animation: bubble-rise 3.5s infinite 1s; }
+
+@keyframes bubble-rise {
+    0% { transform: translateY(0) scale(1); opacity: 0.8; }
+    100% { transform: translateY(-60px) scale(1.2); opacity: 0; }
+}
+
+@keyframes liquid-bubble {
+    0%, 100% { transform: translateX(-50%) scaleY(1); }
+    50% { transform: translateX(-50%) scaleY(1.05); }
+}
+
+.molecule {
+    position: absolute;
+    top: 25%;
+    left: 15%;
+    width: 100px;
+    height: 100px;
+}
+
+.atom-small {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.a1 {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff6b6b;
+}
+
+.a2 {
+    bottom: 10px;
+    left: 10px;
+    background: #4a69bd;
+}
+
+.a3 {
+    bottom: 10px;
+    right: 10px;
+    background: #2ed573;
+}
+
+.bond {
+    position: absolute;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    transform-origin: 0 0;
+}
+
+.bd1 {
+    width: 40px;
+    top: 10px;
+    left: 30px;
+    transform: rotate(30deg);
+}
+
+.bd2 {
+    width: 40px;
+    top: 10px;
+    left: 30px;
+    transform: rotate(150deg);
+}
+
+.bd3 {
+    width: 50px;
+    top: 70px;
+    left: 25px;
+    transform: rotate(90deg);
+}
+
+/* Login Page Layout */
+.login-page, .signup-page {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Left Section */
+.login-left, .signup-left {
+    flex: 1;
+    background: linear-gradient(135deg, #0c2461 0%, #1e3799 100%);
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.brand-header {
+    margin-bottom: 40px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.logo i {
+    font-size: 2.8rem;
+    color: #4a69bd;
+    background: white;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.logo h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #4a69bd;
+    font-weight: 800;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-left: 10px;
+}
+
+.science-quote {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border-left: 5px solid #4a69bd;
+}
+
+.science-quote i {
+    font-size: 1.5rem;
+    color: #4a69bd;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.science-quote p {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.author {
+    text-align: right;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.features, .benefits {
+    margin-top: auto;
+}
+
+.features h3, .benefits h3 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.features h3 i, .benefits h3 i {
+    color: #ffa502;
+}
+
+.features ul, .benefits ul {
+    list-style: none;
+}
+
+.features li, .benefits li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.features li i, .benefits li i {
+    color: #2ed573;
+    font-size: 0.9rem;
+}
+
+/* Right Section - Login/Signup Form */
+.login-box, .signup-box {
+    flex: 1;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form-header h2 {
+    font-size: 2rem;
+    color: #0c2461;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form-header p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Error Message */
+.error-message {
+    background: #ffebee;
+    border-left: 4px solid #ff4757;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.error-message i {
+    color: #ff4757;
+    font-size: 1.2rem;
+}
+
+.error-message p {
+    color: #d32f2f;
+    font-weight: 500;
+}
+
+.success-message {
+    background: #e8f5e9;
+    border-left: 4px solid #2ed573;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.success-message i {
+    color: #2ed573;
+    font-size: 1.2rem;
+}
+
+.success-message p {
+    color: #388e3c;
+    font-weight: 500;
+}
+
+/* Form Styles */
+.login-form, .signup-form {
+    width: 100%;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: 1.1rem;
+    z-index: 2;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 16px 20px 16px 50px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    outline: none;
+    border-color: #4a69bd;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(74, 105, 189, 0.2);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    cursor: pointer;
+    font-size: 1.1rem;
+    z-index: 2;
+}
+
+.toggle-password:hover {
+    color: #4a69bd;
+}
+
+/* Form Options */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.remember-me, .terms {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.remember-me input, .terms input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.remember-me span, .terms span {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.forgot-password {
+    color: #4a69bd;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.forgot-password:hover {
+    color: #0c2461;
+    text-decoration: underline;
+}
+
+.terms a {
+    color: #4a69bd;
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+.login-btn, .signup-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #0c2461 0%, #1e3799 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    margin-bottom: 25px;
+}
+
+.login-btn:hover, .signup-btn:hover {
+    background: linear-gradient(135deg, #1e3799 0%, #0c2461 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(12, 36, 97, 0.3);
+}
+
+.login-btn:active, .signup-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.divider::before, .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+.divider span {
+    padding: 0 15px;
+}
+
+/* Social Login */
+.social-login {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.social-btn {
+    flex: 1;
+    padding: 14px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.social-btn.google:hover {
+    background: #f8f9fa;
+    border-color: #db4437;
+    color: #db4437;
+}
+
+.social-btn.github:hover {
+    background: #f8f9fa;
+    border-color: #333;
+    color: #333;
+}
+
+/* Links */
+.signup-link, .login-link {
+    text-align: center;
+    margin-top: auto;
+    color: #666;
+    font-size: 1rem;
+}
+
+.signup-link a, .login-link a {
+    color: #4a69bd;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s;
+}
+
+.signup-link a:hover, .login-link a:hover {
+    color: #0c2461;
+    text-decoration: underline;
+}
+
+/* Password Strength */
+.password-strength {
+    margin-bottom: 25px;
+}
+
+.strength-bar {
+    height: 6px;
+    background: #e0e0e0;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 3px;
+    transition: width 0.3s, background-color 0.3s;
+}
+
+#strengthText {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Additional Science Elements for Signup */
+.microscope {
+    position: absolute;
+    bottom: 20%;
+    right: 15%;
+    width: 80px;
+    height: 80px;
+}
+
+.microscope-base {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.microscope-arm {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.microscope-lens {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.planet {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    width: 70px;
+    height: 70px;
+}
+
+.planet-core {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, #ff9f43, #ff793f);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 159, 67, 0.5);
+}
+
+.ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(30deg);
+    width: 120px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .login-page, .signup-page {
+        flex-direction: column;
+        max-width: 500px;
+    }
+    
+    .login-left, .signup-left {
+        padding: 30px;
+    }
+    
+    .login-box, .signup-box {
+        padding: 40px 30px;
+    }
+    
+    .atom { right: 5%; top: 10%; }
+    .flask { left: 5%; bottom: 10%; }
+    .molecule { left: 5%; top: 20%; }
+    .microscope { right: 5%; bottom: 15%; }
+    .planet { left: 5%; top: 65%; }
+}
+
+@media (max-width: 600px) {
+    .science-container {
+        padding: 15px;
+    }
+    
+    .login-page, .signup-page {
+        border-radius: 20px;
+    }
+    
+    .logo {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .logo h1 {
+        font-size: 2rem;
+    }
+    
+    .form-header h2 {
+        font-size: 1.7rem;
+    }
+    
+    .social-login {
+        flex-direction: column;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .atom, .flask, .molecule, .microscope, .planet {
+        display: none;
+    }
+}

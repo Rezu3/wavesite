@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science Zone - Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="signup-container">
+    <!-- Left Panel with Science Theme -->
+    <div class="left-panel">
+        <div class="science-header">
+            <div class="logo">
+                <i class="fas fa-atom"></i>
+                <h1>Science <span>Zone</span></h1>
+            </div>
+            <p class="tagline">বিজ্ঞানের জগতে স্বাগতম</p>
+        </div>
+        
+        <div class="science-animation">
+            <div class="atom">
+                <div class="nucleus"></div>
+                <div class="electron e1"></div>
+                <div class="electron e2"></div>
+                <div class="electron e3"></div>
+                <div class="orbit o1"></div>
+                <div class="orbit o2"></div>
+                <div class="orbit o3"></div>
+            </div>
+            <div class="flask">
+                <div class="flask-body"></div>
+                <div class="flask-neck"></div>
+                <div class="liquid"></div>
+                <div class="bubble b1"></div>
+                <div class="bubble b2"></div>
+            </div>
+        </div>
+        
+        <div class="benefits">
+            <h3><i class="fas fa-rocket"></i> কেন যোগ দিবেন?</h3>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> বিজ্ঞানের ইন্টারেক্টিভ কোর্স</li>
+                <li><i class="fas fa-check-circle"></i> কুইজ এবং এসেসমেন্ট</li>
+                <li><i class="fas fa-check-circle"></i> ভার্চুয়াল ল্যাব এক্সেস</li>
+                <li><i class="fas fa-check-circle"></i> প্রগ্রেস ট্র্যাকিং</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Right Panel - Signup Form -->
+    <div class="right-panel">
+        <div class="signup-box">
+            <div class="form-header">
+                <h2>নতুন অ্যাকাউন্ট তৈরি করুন</h2>
+                <p>আপনার বিজ্ঞান যাত্রা শুরু করুন</p>
+            </div>
+            
+            {% if error %}
+            <div class="error-message">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>{{ error }}</span>
+            </div>
+            {% endif %}
+            
+            {% if success %}
+            <div class="success-message">
+                <i class="fas fa-check-circle"></i>
+                <span>{{ success }}</span>
+            </div>
+            {% endif %}
+            
+            <form method="POST" class="signup-form" id="signupForm">
+                <div class="input-group">
+                    <div class="input-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <input type="text" name="name" id="name" placeholder="আপনার নাম" required>
+                    <div class="input-hint">পূর্ণ নাম লিখুন</div>
+                </div>
+                
+                <div class="input-group">
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <input type="text" name="username" id="username" placeholder="ইউজারনেম" required>
+                    <div class="input-hint">ইংরেজি অক্ষর, সংখ্যা এবং আন্ডারস্কোর</div>
+                </div>
+                
+                <div class="input-group">
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <input type="password" name="password" id="password" placeholder="পাসওয়ার্ড" required>
+                    <span class="toggle-password" id="togglePassword">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                    <div class="input-hint">ন্যূনতম ৮ অক্ষর</div>
+                </div>
+                
+                <div class="password-strength">
+                    <div class="strength-bar">
+                        <div class="strength-fill" id="strengthFill"></div>
+                    </div>
+                    <span id="strengthText">পাসওয়ার্ড শক্তি: </span>
+                </div>
+                
+                <div class="form-options">
+                    <label class="terms-check">
+                        <input type="checkbox" name="terms" id="terms" required>
+                        <span>আমি <a href="#">সেবার শর্তাবলী</a> এবং <a href="#">গোপনীয়তা নীতি</a> মেনে চলতে সম্মত</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="signup-btn" id="submitBtn">
+                    <i class="fas fa-user-plus"></i>
+                    <span>অ্যাকাউন্ট তৈরি করুন</span>
+                </button>
+            </form>
+            
+            <div class="divider">
+                <span>অথবা</span>
+            </div>
+            
+            <div class="social-signup">
+                <button class="social-btn google-btn">
+                    <i class="fab fa-google"></i>
+                    Google দিয়ে সাইন আপ
+                </button>
+                <button class="social-btn facebook-btn">
+                    <i class="fab fa-facebook-f"></i>
+                    Facebook দিয়ে সাইন আপ
+                </button>
+            </div>
+            
+            <div class="login-link">
+                <p>ইতিমধ্যে অ্যাকাউন্ট আছে?
+                    <a href="/">
+                        <i class="fas fa-sign-in-alt"></i>
+                        লগইন করুন
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    // Password visibility toggle
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+    
+    togglePassword.addEventListener('click', function() {
+        const icon = this.querySelector('i');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    });
+    
+    // Password strength checker
+    const passwordStrengthFill = document.getElementById('strengthFill');
+    const passwordStrengthText = document.getElementById('strengthText');
+    
+    passwordInput.addEventListener('input', function() {
+        const password = this.value;
+        let strength = 0;
+        
+        // Length check
+        if (password.length >= 8) strength++;
+        
+        // Contains uppercase
+        if (/[A-Z]/.test(password)) strength++;
+        
+        // Contains numbers
+        if (/[0-9]/.test(password)) strength++;
+        
+        // Contains special characters
+        if (/[^A-Za-z0-9]/.test(password)) strength++;
+        
+        // Update visual indicator
+        const strengthPercent = strength * 25;
+        passwordStrengthFill.style.width = strengthPercent + '%';
+        
+        // Update text and color
+        if (strength === 0) {
+            passwordStrengthFill.style.backgroundColor = '#ff4757';
+            passwordStrengthText.textContent = 'পাসওয়ার্ড শক্তি: খুব দুর্বল';
+        } else if (strength === 1) {
+            passwordStrengthFill.style.backgroundColor = '#ff6b81';
+            passwordStrengthText.textContent = 'পাসওয়ার্ড শক্তি: দুর্বল';
+        } else if (strength === 2) {
+            passwordStrengthFill.style.backgroundColor = '#ffa502';
+            passwordStrengthText.textContent = 'পাসওয়ার্ড শক্তি: মাঝারি';
+        } else if (strength === 3) {
+            passwordStrengthFill.style.backgroundColor = '#2ed573';
+            passwordStrengthText.textContent = 'পাসওয়ার্ড শক্তি: ভালো';
+        } else {
+            passwordStrengthFill.style.backgroundColor = '#1e90ff';
+            passwordStrengthText.textContent = 'পাসওয়ার্ড শক্তি: শক্তিশালী';
+        }
+    });
+    
+    // Form validation
+    const signupForm = document.getElementById('signupForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const termsCheckbox = document.getElementById('terms');
+    
+    signupForm.addEventListener('submit', function(e) {
+        const name = document.getElementById('name').value.trim();
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+        
+        // Simple validation
+        if (!name || !username || !password) {
+            e.preventDefault();
+            showMessage('দয়া করে সব তথ্য পূরণ করুন', 'error');
+            return;
+        }
+        
+        if (!termsCheckbox.checked) {
+            e.preventDefault();
+            showMessage('দয়া করে সেবার শর্তাবলী গ্রহণ করুন', 'error');
+            return;
+        }
+        
+        if (password.length < 8) {
+            e.preventDefault();
+            showMessage('পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে', 'error');
+            return;
+        }
+        
+        // If all validations pass
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>অ্যাকাউন্ট তৈরি হচ্ছে...</span>';
+        submitBtn.disabled = true;
+    });
+    
+    // Username validation
+    const usernameInput = document.getElementById('username');
+    usernameInput.addEventListener('input', function() {
+        const username = this.value;
+        const usernamePattern = /^[a-zA-Z0-9_]+$/;
+        
+        if (username && !usernamePattern.test(username)) {
+            this.style.borderColor = '#ff4757';
+            showMessage('ইউজারনেমে শুধুমাত্র ইংরেজি অক্ষর, সংখ্যা এবং আন্ডারস্কোর ব্যবহার করুন', 'warning');
+        } else {
+            this.style.borderColor = '';
+        }
+    });
+    
+    // Show message function
+    function showMessage(message, type) {
+        // Remove existing message
+        const existingMessage = document.querySelector('.temp-message');
+        if (existingMessage) existingMessage.remove();
+        
+        // Create new message
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `temp-message ${type}-message`;
+        messageDiv.innerHTML = `
+            <i class="fas fa-${type === 'error' ? 'exclamation-triangle' : 'info-circle'}"></i>
+            <span>${message}</span>
+        `;
+        
+        // Insert after form header
+        const formHeader = document.querySelector('.form-header');
+        formHeader.parentNode.insertBefore(messageDiv, formHeader.nextSibling);
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            if (messageDiv.parentNode) {
+                messageDiv.parentNode.removeChild(messageDiv);
+            }
+        }, 5000);
+    }
+    
+    // Social button handlers
+    document.querySelectorAll('.social-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const provider = this.classList.contains('google-btn') ? 'Google' : 'Facebook';
+            showMessage(`${provider} সাইন আপ ফিচারটি শীঘ্রই আসছে!`, 'warning');
+        });
+    });
+    
+    // Animation for science elements
+    document.addEventListener('DOMContentLoaded', function() {
+        const atoms = document.querySelectorAll('.electron');
+        atoms.forEach((atom, index) => {
+            atom.style.animationDelay = `${index * 0.5}s`;
+        });
+        
+        const bubbles = document.querySelectorAll('.bubble');
+        bubbles.forEach((bubble, index) => {
+            bubble.style.animationDelay = `${index * 0.3}s`;
+        });
+    });
+</script>
+</body>
+</html>

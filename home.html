@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science Zone - Home</title>
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-atom"></i>
+                <h1>Science <span>Zone</span></h1>
+            </div>
+            <div class="user-profile">
+                <div class="user-info">
+                    <span class="user-name">{{ user_name }}</span>
+                    <span class="user-status">Online</span>
+                </div>
+                <div class="avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <div class="welcome-content">
+                <h2>Welcome to Science Zone, {{ user_name }}!</h2>
+                <p>Your gateway to exciting scientific exploration and learning. Dive into experiments, quizzes, and discover the wonders of science.</p>
+                <div class="quick-links">
+                    <a href="/quiz" class="quick-link">
+                        <i class="fas fa-flask"></i>
+                        <span>Start Experiment</span>
+                    </a>
+                    <a href="/subject" class="quick-link">
+                        <i class="fas fa-book"></i>
+                        <span>Browse Subjects</span>
+                    </a>
+                    <a href="/syllabus" class="quick-link">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>View Syllabus</span>
+                    </a>
+                </div>
+            </div>
+            <div class="welcome-image">
+                <div class="science-graphic">
+                    <div class="graphic-element element-1">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div class="graphic-element element-2">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <div class="graphic-element element-3">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="graphic-element element-4">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="home-wrapper">
+                <!-- Today's Focus Section -->
+                <div class="focus-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-bullseye"></i>
+                        Today's Focus
+                    </h2>
+                    <div class="focus-card">
+                        <div class="focus-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <div class="focus-content">
+                            <h3>Chemistry Basics</h3>
+                            <p>Complete the atomic structure module and take the practice quiz</p>
+                            <div class="focus-time">
+                                <i class="fas fa-clock"></i>
+                                <span>Estimated: 45 min</span>
+                            </div>
+                        </div>
+                        <button class="focus-start-btn">
+                            <i class="fas fa-play"></i>
+                            Start
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Learning Modules -->
+                <h2 class="section-title">
+                    <i class="fas fa-th-large"></i>
+                    Learning Modules
+                </h2>
+                <div class="modules-grid">
+                    <div class="wave-item featured">
+                        <div class="wave-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="wave-content">
+                            <h3>🏠 Home Dashboard</h3>
+                            <p>Your personalized science learning dashboard with recommendations.</p>
+                            <a href="/home" class="wave-link">Explore <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="wave-item">
+                        <div class="wave-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="wave-content">
+                            <h3>📚 Syllabus & Materials</h3>
+                            <p>Access science course outlines, study materials, and learning resources.</p>
+                            <a href="/syllabus" class="wave-link">View Syllabus <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="wave-item">
+                        <div class="wave-icon">
+                            <i class="fas fa-folder-open"></i>
+                        </div>
+                        <div class="wave-content">
+                            <h3>📘 Science Subjects</h3>
+                            <p>Browse through physics, chemistry, biology and other science topics.</p>
+                            <a href="/subject" class="wave-link">Browse Subjects <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Enhanced QUIZ with hidden start -->
+                    <div class="wave-item quiz-item">
+                        <div class="wave-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div class="wave-content">
+                            <h3>📝 Science Quiz</h3>
+                            <p>Test your scientific knowledge with interactive quizzes and immediate feedback.</p>
+                            <div class="quiz-info">
+                                <span class="badge"><i class="fas fa-clock"></i>Time Basics</span>
+                                <span class="badge"><i class="fas fa-star"></i> Score Points</span>
+                            </div>
+                            <a href="/quiz" class="start-inside">Start Quiz <i class="fas fa-play"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Enhanced EXAM with hidden start -->
+                    <div class="wave-item exam-item">
+                        <div class="wave-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="wave-content">
+                            <h3>🧾 Science Exam</h3>
+                            <p>Take a comprehensive exam to assess your overall scientific understanding.</p>
+                            <div class="quiz-info">
+                                <span class="badge"><i class="fas fa-clock"></i>Time Basics</span>
+                                <span class="badge"><i class="fas fa-award"></i>All The Best</span>
+                            </div>
+                            <a href="/exam" class="start-inside">Start Exam <i class="fas fa-play"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Experiments Module -->
+                    <div class="wave-item">
+                        <div class="wave-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="wave-content">
+                            <h3>🔬 Virtual Lab</h3>
+                            <p>Perform virtual science experiments in a safe, interactive environment.</p>
+                            <a href="/lab" class="wave-link">Enter Lab <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-history"></i>
+                        Recent Activity
+                    </h2>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon success">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="activity-details">
+                                <h4>Completed Physics Quiz</h4>
+                                <p>Laws of Motion | Score: 85%</p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon primary">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="activity-details">
+                                <h4>Studied Chemistry Chapter</h4>
+                                <p>Chemical Bonding | Duration: 30 min</p>
+                                <span class="activity-time">Yesterday</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon warning">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="activity-details">
+                                <h4>Watched Biology Video</h4>
+                                <p>Cell Structure & Functions</p>
+                                <span class="activity-time">2 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-atom"></i>
+                        <h3>Science Zone</h3>
+                    </div>
+                    <p>Exploring the wonders of science through interactive learning</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <span>WhatsApp</span>
+                                <a href="https://wa.me/9775368135" target="_blank">+977 5368135</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span>Email</span>
+                                <a href="mailto:rezuphysics@gmail.com">rezuphysics@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/home">Home</a></li>
+                        <li><a href="/syllabus">Syllabus</a></li>
+                        <li><a href="/subject">Subjects</a></li>
+                        <li><a href="/quiz">Quizzes</a></li>
+                        <li><a href="/exam">Exams</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Science Zone &copy; 2023 | Making Science Accessible and Exciting</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript for interactive elements -->
+    <script>
+        // Toggle start button visibility on hover for quiz and exam
+        document.querySelectorAll('.quiz-item, .exam-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.querySelector('.start-inside').style.opacity = '1';
+                this.querySelector('.start-inside').style.transform = 'translateY(0)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.querySelector('.start-inside').style.opacity = '0';
+                this.querySelector('.start-inside').style.transform = 'translateY(10px)';
+            });
+        });
+
+        // Focus start button
+        document.querySelector('.focus-start-btn').addEventListener('click', function() {
+            alert('Starting Chemistry Basics module...');
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Starting...';
+            setTimeout(() => {
+                window.location.href = '/subject?module=chemistry';
+            }, 1000);
+        });
+
+        // Animate science graphic elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.graphic-element');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.transform = 'scale(1)';
+                    el.style.opacity = '1';
+                }, index * 200);
+            });
+        });
+
+        // Update user name dynamically (this would come from backend)
+        // For demo purposes, we'll show a default name
+        const userNameElement = document.querySelector('.user-name');
+        if (userNameElement && userNameElement.textContent === '{{ user_name }}') {
+            // This is a placeholder - in your Flask app, replace this with actual user data
+            userNameElement.textContent = 'Student';
+        }
+    </script>
+</body>
+</html>

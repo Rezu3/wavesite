@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="result-container">
+    <h1>Quiz Result</h1>
+    <div class="result-box">
+        <h2 id="score">Score: 0 / 0</h2>
+        <h2 id="percentage">Percentage: 0%</h2>
+    </div>
+</div>
+
+<script>
+    const score = localStorage.getItem("score");
+    const total = localStorage.getItem("total");
+
+    if (score !== null && total !== null) {
+        const s = Number(score);
+        const t = Number(total);
+        document.getElementById("score").innerText = `Score: ${s} / ${t}`;
+        document.getElementById("percentage").innerText = `Percentage: ${Math.round((s / t) * 100)}%`;
+    } else {
+        document.getElementById("score").innerText = "No Result Found";
+        document.getElementById("percentage").innerText = "0%";
+    }
+</script>
+</body>
+</html>
