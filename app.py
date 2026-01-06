@@ -100,6 +100,15 @@ def quiz():
     return render_template("quiz.html")
 
 # ------------------------
+# Subject Page
+# ------------------------
+@app.route("/subject")
+def subject():
+    if "user" not in session:
+        return redirect("/")
+    return render_template("subject.html")
+
+# ------------------------
 # Result Page
 # ------------------------
 @app.route("/result")
@@ -119,4 +128,5 @@ def exam():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 
