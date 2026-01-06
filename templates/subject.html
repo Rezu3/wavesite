@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বিষয়ভিত্তিক শিক্ষা পোর্টাল</title>
+    <link rel="stylesheet" href="/static/css/subject.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+         <!-- subject.html ফাইলের হেডার সেকশনে যোগ করুন -->
+<header>
+    <h1><i class="fas fa-graduation-cap"></i> শিক্ষা পোর্টাল</h1>
+    <p>আপনার শ্রেণি এবং বিষয় নির্বাচন করুন</p>
+    <div class="header-actions">
+        <a href="/" class="home-btn">
+            <i class="fas fa-home"></i> হোম পেজ
+        </a>
+    </div>
+</header>
+        
+        <main>
+            <!-- শ্রেণি নির্বাচন অংশ -->
+            <section class="class-section">
+                <h2><i class="fas fa-chalkboard-teacher"></i> শ্রেণি নির্বাচন করুন</h2>
+                <p class="section-description">নিচের শ্রেণি গুলোর মধ্যে থেকে আপনার শ্রেণি নির্বাচন করুন</p>
+                
+                <div class="class-grid" id="classGrid">
+                    <!-- শ্রেণি ৯ -->
+                    <div class="class-card" data-class="9">
+                        <div class="class-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>CLASS 9</h3>
+                        <p>মাধ্যমিক পর্যায় (প্রথম পর্যায়)</p>
+                        <div class="class-subjects">
+                            <span class="subject-tag">গণিত</span>
+                            <span class="subject-tag">ভৌতবিজ্ঞান</span>
+                            <span class="subject-tag">জীবনবিজ্ঞান</span>
+                        </div>
+                        <button class="select-btn" onclick="selectClass(9)">নির্বাচন করুন</button>
+                    </div>
+                    
+                    <!-- শ্রেণি ১০ -->
+                    <div class="class-card" data-class="10">
+                        <div class="class-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>CLASS 10</h3>
+                        <p>মাধ্যমিক পর্যায় (দ্বিতীয় পর্যায়)</p>
+                        <div class="class-subjects">
+                            <span class="subject-tag">গণিত</span>
+                            <span class="subject-tag">ভৌতবিজ্ঞান</span>
+                            <span class="subject-tag">জীবনবিজ্ঞান</span>
+                        </div>
+                        <button class="select-btn" onclick="selectClass(10)">নির্বাচন করুন</button>
+                    </div>
+                    
+                    <!-- শ্রেণি ১১ -->
+                    <div class="class-card" data-class="11">
+                        <div class="class-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3>CLASS 11</h3>
+                        <p>উচ্চ মাধ্যমিক পর্যায় (প্রথম বর্ষ)</p>
+                        <div class="class-subjects">
+                            <span class="subject-tag">Mathematica</span>
+                            <span class="subject-tag">Physics</span>
+                            <span class="subject-tag">Chemistry</span>
+                            <span class="subject-tag">Biology</span>
+                        </div>
+                        <button class="select-btn" onclick="selectClass(11)">নির্বাচন করুন</button>
+                    </div>
+                    
+                    <!-- শ্রেণি ১২ -->
+                    <div class="class-card" data-class="12">
+                        <div class="class-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h3>CLASS 12</h3>
+                        <p>উচ্চ মাধ্যমিক পর্যায় (দ্বিতীয় বর্ষ)</p>
+                        <div class="class-subjects">
+                            <span class="subject-tag">Mathematica</span>
+                            <span class="subject-tag">Physics</span>
+                            <span class="subject-tag">Chemistry</span>
+                            <span class="subject-tag">Biology</span>
+                        </div>
+                        <button class="select-btn" onclick="selectClass(12)">নির্বাচন করুন</button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- বিষয় নির্বাচন অংশ (শুরুতে লুকানো) -->
+            <section class="subject-section" id="subjectSection" style="display: none;">
+                <div class="section-header">
+                    <button class="back-btn" onclick="goBackToClasses()">
+                        <i class="fas fa-arrow-left"></i> শ্রেণি তালিকায় ফিরে যান
+                    </button>
+                    <h2><i class="fas fa-book"></i> <span id="selectedClassText">শ্রেণি ৯</span> - বিষয় নির্বাচন করুন</h2>
+                </div>
+                
+                <div class="subject-grid" id="subjectGrid">
+                    <!-- বিষয়গুলো JavaScript এর মাধ্যমে দেখানো হবে -->
+                </div>
+            </section>
+            
+            <!-- বিষয়ের বিস্তারিত অংশ (শুরুতে লুকানো) -->
+            <section class="subject-detail-section" id="subjectDetailSection" style="display: none;">
+                <div class="section-header">
+                    <button class="back-btn" onclick="goBackToSubjects()">
+                        <i class="fas fa-arrow-left"></i> বিষয় তালিকায় ফিরে যান
+                    </button>
+                    <h2><i class="fas fa-book-reader"></i> <span id="selectedSubjectText">গণিত</span> - <span id="selectedSubjectClassText">শ্রেণি ৯</span></h2>
+                </div>
+                
+                <div class="subject-detail-content">
+                    <div class="subject-info-card">
+                        <div class="subject-header">
+                            <div class="subject-icon-large" id="subjectIconLarge">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="subject-info">
+                                <h3 id="detailSubjectTitle">গণিত</h3>
+                                <p id="detailSubjectDescription">এই বিষয়ে বিভিন্ন গাণিতিক সমস্যা ও সমাধান পদ্ধতি আলোচনা করা হয়।</p>
+                                <div class="subject-stats">
+                                    <span class="stat"><i class="fas fa-clock"></i> মোট পাঠ: ১৫টি</span>
+                                    <span class="stat"><i class="fas fa-chart-line"></i> কঠিনতা: মধ্যম</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subject-options" id="subjectOptions">
+                            <!-- বিষয়ের অপশনগুলো JavaScript এর মাধ্যমে দেখানো হবে -->
+                        </div>
+                        
+                        <div class="upcoming-exams">
+                            <h4><i class="fas fa-calendar-alt"></i> আসন্ন পরীক্ষা</h4>
+                            <div class="exam-list">
+                                <div class="exam-item">
+                                    <div class="exam-date">
+                                        <span class="date-day">২৫</span>
+                                        <span class="date-month">জুন</span>
+                                    </div>
+                                    <div class="exam-details">
+                                        <h5>অধ্যায় ১-৩: মধ্যবর্তী পরীক্ষা</h5>
+                                        <p><i class="far fa-clock"></i> সময়: ২ ঘন্টা</p>
+                                    </div>
+                                    <div class="exam-status">
+                                        <span class="status pending">অপেক্ষমান</span>
+                                    </div>
+                                </div>
+                                <div class="exam-item">
+                                    <div class="exam-date">
+                                        <span class="date-day">১০</span>
+                                        <span class="date-month">জুলাই</span>
+                                    </div>
+                                    <div class="exam-details">
+                                        <h5>অধ্যায় ৪-৬: ইউনিট টেস্ট</h5>
+                                        <p><i class="far fa-clock"></i> সময়: ১.৫ ঘন্টা</p>
+                                    </div>
+                                    <div class="exam-status">
+                                        <span class="status pending">অপেক্ষমান</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>শিক্ষা পোর্টাল &copy; 2026 | তৈরি করেছেন:Science Zone</p>
+            <div class="footer-links">
+                <a href="#"><i class="fas fa-question-circle"></i> সাহায্য</a>
+                <a href="#"><i class="fas fa-envelope"></i> যোগাযোগ</a>
+                <a href="#"><i class="fas fa-info-circle"></i> আমাদের সম্পর্কে</a>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="/static/js/subject.js"></script>
+</body>
+</html>
