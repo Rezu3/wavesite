@@ -225,10 +225,6 @@ const quizData =[
     "options": ["try", "catch", "throw", "finally"],
     "answer": 3
   },
-
-  {
-    "question": " MORE 100 QUESTION",
-  },
   {
     "question": "1. Java was originally developed by:",
     "options": ["Microsoft", "Sun Microsystems", "IBM", "Oracle"],
@@ -1003,4 +999,5 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM loaded, initializing quiz...");
     initQuiz();
 });
+
 
