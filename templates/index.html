@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Master - Subject Selection</title>
+    <link rel="stylesheet" href="/static/css/quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-brain"></i> Quiz Master</h1>
+            <p class="subtitle">Test your knowledge in different domains</p>
+        </header>
+        
+        <div class="subject-selection">
+            <h2>Choose a Quiz Category</h2>
+            <p class="instruction">Select a subject to begin the challenge. Each quiz has 30 seconds per question with instant feedback!</p>
+            
+            <div class="subject-grid">
+                <div class="subject-card" data-subject="gk">
+                    <div class="card-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>General Knowledge</h3>
+                    <p>Test your awareness of world facts, history, and current events.</p>
+                    <div class="card-stats">
+                        <span><i class="fas fa-question-circle"></i> 10 Questions</span>
+                        <span><i class="fas fa-clock"></i> 30s each</span>
+                    </div>
+                    <a href="/gk" class="start-btn">Start Quiz <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="subject-card" data-subject="math">
+                    <div class="card-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Mathematics</h3>
+                    <p>Challenge your numerical and problem-solving skills.</p>
+                    <div class="card-stats">
+                        <span><i class="fas fa-question-circle"></i> 10 Questions</span>
+                        <span><i class="fas fa-clock"></i> 30s each</span>
+                    </div>
+                    <a href="/math" class="start-btn">Start Quiz <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="subject-card" data-subject="logic">
+                    <div class="card-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Logical Reasoning</h3>
+                    <p>Evaluate your analytical and critical thinking abilities.</p>
+                    <div class="card-stats">
+                        <span><i class="fas fa-question-circle"></i> 10 Questions</span>
+                        <span><i class="fas fa-clock"></i> 30s each</span>
+                    </div>
+                    <a href="/logic" class="start-btn">Start Quiz <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="quiz-info">
+                <h3><i class="fas fa-info-circle"></i> How it works</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-stopwatch"></i>
+                        </div>
+                        <h4>30 Second Timer</h4>
+                        <p>Each question has a 30-second countdown timer.</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Instant Feedback</h4>
+                        <p>Get immediate reaction for correct/incorrect answers.</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Score Tracking</h4>
+                        <p>Track your performance with a live score counter.</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h4>Final Results</h4>
+                        <p>Receive your score and performance analysis at the end.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Quiz Master Challenge &copy; 2023 | Designed with <i class="fas fa-heart"></i> for knowledge seekers</p>
+        </footer>
+    </div>
+    
+    <script src="/static/js/subject.js"></script>
+</body>
+</html>
