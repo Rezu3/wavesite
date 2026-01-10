@@ -90,15 +90,7 @@ def logout():
     session.clear()
     return redirect("/")
 
-# ------------------------
-# Quiz Page
-# ------------------------
-@app.route("/quiz")
-def quiz():
-    if "user" not in session:
-        return redirect("/")
-    return render_template("quiz.html")
-
+ 
 # ------------------------
 # Subject Page
 # ------------------------
@@ -107,7 +99,6 @@ def subject():
     if "user" not in session:
         return redirect("/")
     return render_template("subject.html")
-
 # ------------------------
 # Result Page
 # ------------------------
@@ -124,9 +115,27 @@ def exam():
     if "user" not in session:
         return redirect("/")
     return render_template("exam.html")
-
+ 
+# ------------------------
+# quiz page
+# ------------------------
+@app.route("/index")
+def index():
+    if "user" not in session:
+        return redirect("/")
+    return render_template("index.html")
+# ------------------------
+# gk.html page
+# ------------------------
+@app.route("/gk")
+def gk():
+    if "user" not in session:
+        return redirect("/")
+    return render_template("gk.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
 
 
