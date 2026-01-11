@@ -313,6 +313,7 @@ document.addEventListener('DOMContentLoaded', function() {
         explanation: "জাতীয় যুব দিবস প্রতি বছর ১২ জানুয়ারি স্বামী বিবেকানন্দের জন্মদিনে পালিত হয়। ১৯৮৪ সাল থেকে যুবসমাজের প্রতি তার আদর্শ ও শিক্ষাকে সম্মান জানাতে এই দিনটি পালন করা হয়।"
     }
 ];
+    
 
     // Quiz state variables
     let currentQuestionIndex = 0;
@@ -322,6 +323,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let questionTimer;
     let quizStartTime;
     let quizCompleted = false;
+    let autoAdvanceInterval;
+    let advanceProgressInterval;
 
     // DOM elements
     const questionText = document.getElementById('question-text');
@@ -330,8 +333,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const scoreElement = document.getElementById('score');
     const totalTimeElement = document.getElementById('total-time');
     const timerElement = document.getElementById('timer');
-    const nextBtn = document.getElementById('next-btn');
-    const backBtn = document.getElementById('back-btn');
     const feedbackElement = document.getElementById('feedback');
     const resultContainer = document.getElementById('result-container');
     const finalScoreElement = document.getElementById('final-score');
@@ -353,6 +354,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Hide result container
         resultContainer.style.display = 'none';
+        
+        // Show quiz elements
+        document.querySelector('.question-container').style.display = 'block';
+        document.querySelector('.timer-container').style.display = 'block';
         
         // Update UI
         updateScore();
@@ -422,9 +427,6 @@ document.addEventListener('DOMContentLoaded', function() {
         feedbackElement.className = 'feedback';
         feedbackElement.textContent = '';
         
-        // Disable next button initially
-        nextBtn.disabled = true;
-        
         // Start question timer
         startQuestionTimer();
     }
@@ -467,9 +469,55 @@ document.addEventListener('DOMContentLoaded', function() {
             questionTimer.stopTimer();
         }
         
-        // Enable next button
-        nextBtn.disabled = false;
-        nextBtn.focus();
+        // Auto advance to next question after 2 seconds
+        startAutoAdvance(2000); // 2 seconds
+    }
+
+    // Auto advance to next question
+    function startAutoAdvance(duration) {
+        // Create or show auto-advance progress bar
+        let progressBar = document.querySelector('.auto-advance-progress');
+        if (!progressBar) {
+            progressBar = document.createElement('div');
+            progressBar.className = 'auto-advance-progress';
+            progressBar.innerHTML = '<div class="advance-progress"></div>';
+            feedbackElement.parentNode.insertBefore(progressBar, feedbackElement.nextSibling);
+        }
+        
+        const progressFill = progressBar.querySelector('.advance-progress');
+        progressBar.classList.add('active');
+        progressFill.style.width = '0%';
+        
+        // Clear any existing intervals
+        if (autoAdvanceInterval) clearTimeout(autoAdvanceInterval);
+        if (advanceProgressInterval) clearInterval(advanceProgressInterval);
+        
+        // Start progress bar animation
+        let progress = 0;
+        const increment = 100 / (duration / 50); // Update every 50ms
+        
+        advanceProgressInterval = setInterval(() => {
+            progress += increment;
+            progressFill.style.width = `${Math.min(progress, 100)}%`;
+        }, 50);
+        
+        // Auto advance after duration
+        autoAdvanceInterval = setTimeout(() => {
+            progressBar.classList.remove('active');
+            clearInterval(advanceProgressInterval);
+            goToNextQuestion();
+        }, duration);
+    }
+
+    // Go to next question
+    function goToNextQuestion() {
+        currentQuestionIndex++;
+        
+        if (currentQuestionIndex < gkQuestions.length) {
+            loadQuestion(currentQuestionIndex);
+        } else {
+            endQuiz();
+        }
     }
 
     // Start question timer (30 seconds)
@@ -500,14 +548,30 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show feedback
         showFeedback(false, gkQuestions[currentQuestionIndex].options[correctIndex]);
         
-        // Enable next button
-        nextBtn.disabled = false;
-        nextBtn.focus();
+        // Auto advance to next question after 2 seconds
+        startAutoAdvance(2000);
+    }
+
+    // Show feedback
+    function showFeedback(isCorrect, correctAnswer = null) {
+        // Update feedback message
+        if (isCorrect) {
+            feedbackElement.textContent = "Correct! 🎉";
+            feedbackElement.className = 'feedback correct show';
+            playSound('correct');
+            createConfetti();
+        } else {
+            feedbackElement.textContent = correctAnswer ? 
+                `Incorrect. Correct answer: ${correctAnswer}` : 
+                "Time's up!";
+            feedbackElement.className = 'feedback incorrect show';
+            playSound('incorrect');
+        }
     }
 
     // Start quiz timer (5 minutes total)
     function startQuizTimer() {
-        let totalSeconds =1500; // 5 minutes
+        let totalSeconds = 300; // 5 minutes
         
         const updateTimerDisplay = () => {
             totalTimeElement.textContent = formatTime(totalSeconds);
@@ -546,6 +610,15 @@ document.addEventListener('DOMContentLoaded', function() {
         totalTimeElement.textContent = "05:00";
     }
 
+    // Update progress bar
+    function updateProgressBar(current, total) {
+        const progressBar = document.querySelector('.progress');
+        if (progressBar) {
+            const percentage = (current / total) * 100;
+            progressBar.style.width = `${percentage}%`;
+        }
+    }
+
     // End the quiz
     function endQuiz() {
         quizCompleted = true;
@@ -554,6 +627,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (questionTimer && questionTimer.stopTimer) {
             questionTimer.stopTimer();
         }
+        
+        // Stop auto-advance
+        if (autoAdvanceInterval) clearTimeout(autoAdvanceInterval);
+        if (advanceProgressInterval) clearInterval(advanceProgressInterval);
         
         // Calculate quiz duration
         const quizDuration = Math.floor((Date.now() - quizStartTime) / 1000);
@@ -594,27 +671,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Event Listeners
-    nextBtn.addEventListener('click', function() {
-        currentQuestionIndex++;
-        
-        if (currentQuestionIndex < gkQuestions.length) {
-            loadQuestion(currentQuestionIndex);
-        } else {
-            endQuiz();
-        }
-    });
-
-    backBtn.addEventListener('click', function() {
-        if (confirm("Are you sure you want to leave? Your progress will be lost.")) {
-            window.location.href = "index.html";
-        }
-    });
-
+    // Event Listeners for result buttons
     restartBtn.addEventListener('click', function() {
         initQuiz();
-        document.querySelector('.question-container').style.display = 'block';
-        document.querySelector('.timer-container').style.display = 'block';
     });
 
     homeBtn.addEventListener('click', function() {
