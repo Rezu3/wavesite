@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function() {
 // gk.js - General Knowledge Quiz Logic
 const gkQuestions = [
     // History
@@ -311,8 +312,6 @@ const gkQuestions = [
     }
 ]; 
  
-    
-
     // Quiz state variables
     let currentQuestionIndex = 0;
     let score = 0;
