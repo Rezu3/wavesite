@@ -10,12 +10,13 @@
 </head>
 <body>
     <div class="quiz-container">
+        <!-- Compact Header -->
         <div class="quiz-header">
-            <h1><i class="fas fa-globe-americas"></i> General Knowledge Quiz</h1>
+            <h1><i class="fas fa-globe-americas"></i> GK Quiz</h1>
             <div class="quiz-info-bar">
                 <div class="info-box">
-                    <div class="info-label">Question</div>
-                    <div class="info-value" id="current-question">1/50</div>
+                    <div class="info-label">Q</div>
+                    <div class="info-value" id="current-question">1/10</div>
                 </div>
                 <div class="info-box">
                     <div class="info-label">Score</div>
@@ -23,11 +24,12 @@
                 </div>
                 <div class="info-box">
                     <div class="info-label">Time</div>
-                    <div class="info-value" id="total-time">25:00</div>
+                    <div class="info-value" id="total-time">05:00</div>
                 </div>
             </div>
         </div>
         
+        <!-- Timer -->
         <div class="timer-container">
             <div class="info-label">Time Remaining</div>
             <div class="timer" id="timer">30</div>
@@ -36,6 +38,7 @@
             </div>
         </div>
         
+        <!-- Question Area -->
         <div class="question-container">
             <div class="question-text" id="question-text">Loading question...</div>
             
@@ -44,46 +47,39 @@
             </div>
             
             <div class="feedback" id="feedback"></div>
-            
-            <div class="action-buttons">
-                <button class="btn btn-secondary" id="back-btn">
-                    <i class="fas fa-arrow-left"></i> Back to Subjects
-                </button>
-                <button class="btn btn-primary" id="next-btn" disabled>
-                    Next Question <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
+            <!-- Auto-advance progress bar will be inserted here -->
         </div>
         
+        <!-- Results (Initially Hidden) -->
         <div class="result-container" id="result-container" style="display: none;">
             <div class="result-icon">
                 <i class="fas fa-trophy"></i>
             </div>
             <h2>Quiz Complete!</h2>
-            <div class="score-display" id="final-score">0/50</div>
+            <div class="score-display" id="final-score">0/10</div>
             <p id="result-message">You're a knowledge master!</p>
             
             <div class="result-stats">
                 <div class="stat-box">
                     <div class="stat-value" id="correct-count">0</div>
-                    <div class="stat-label">Correct Answers</div>
+                    <div class="stat-label">Correct</div>
                 </div>
                 <div class="stat-box">
                     <div class="stat-value" id="incorrect-count">0</div>
-                    <div class="stat-label">Incorrect Answers</div>
+                    <div class="stat-label">Incorrect</div>
                 </div>
                 <div class="stat-box">
                     <div class="stat-value" id="time-taken">0:00</div>
-                    <div class="stat-label">Time Taken</div>
+                    <div class="stat-label">Time</div>
                 </div>
                 <div class="stat-box">
                     <div class="stat-value" id="percentage">0%</div>
-                    <div class="stat-label">Success Rate</div>
+                    <div class="stat-label">Success</div>
                 </div>
             </div>
             
-            <div style="margin-top: 30px;">
-                <button class="btn btn-primary" id="restart-btn" style="margin-right: 15px;">
+            <div class="action-buttons">
+                <button class="btn btn-primary" id="restart-btn">
                     <i class="fas fa-redo"></i> Restart Quiz
                 </button>
                 <button class="btn btn-secondary" id="home-btn">
