@@ -1,7 +1,5 @@
 // static/js/pyq.js
-
-// PYQ (Bengali) Questions for Group C/D
- const pyqQuestions = [
+const pyqQuestions = [
     // Section I: General Knowledge (1-15)
     {
         question: "JPEG একটি ছবির ফরমাট – JPEG-এর পূরা কথাটি কি?",
@@ -291,24 +289,13 @@
     }
 ];
 
-// Note: Some questions from the original PDF were incomplete/unreadable in the provided text.
-// This array contains all readable questions with estimated correct answers where necessary.
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
@@ -819,5 +806,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize the quiz when page loads
     initQuiz();
-
 });
+
