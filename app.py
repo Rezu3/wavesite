@@ -133,8 +133,19 @@ def gk():
         return redirect("/")
     return render_template("gk.html")
 
+# ------------------------
+# pyq page - CORRECTED
+# ------------------------
+@app.route("/pyq/")
+@app.route("/pyq")
+def pyq():
+    if "user" not in session:  # FIXED: Changed "pyq" to "user"
+        return redirect("/")
+    return render_template("pyq.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
+
 
 
 
